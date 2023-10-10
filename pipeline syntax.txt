@@ -2,27 +2,42 @@ pipeline {
     agent any
     stages {
         stage ('pull code') {
+            agent {
+                label 'slave-1'
+            }
             steps {
                 sh 'ls'
+                
             }
         }
         
 	stage ('build code') {
+            agent {
+                label 'slave-2'
+            }
             steps {
                 sh 'echo "build code successfully"'
             }
         }
         stage ('test code') {
+            agent {
+                label 'slave-3'
+            }
             steps {
                 sh 'echo "test code successfully"'
             }
         }
         stage ('deploy code') {
+            agent {
+                label 'slave-4'
+            }
             steps {
                 sh 'echo "deploy code successfully"'
             }
         }
     }
 }
-                
-                
+              
+
+
+
