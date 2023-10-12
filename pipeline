@@ -1,0 +1,36 @@
+pipeline {
+    agent any
+    stages {
+        stage ('pull code') {
+
+            steps {
+                sh 'ls'
+                git credentialsId: 'jenkins', url: 'git@github.com:shashirajraja/onlinebookstore.git'
+                
+            }
+        }
+        
+	stage ('build code') {
+            steps {
+                sh 'echo "build code successfully"'
+                sh 'sudo apt-get install maven -y'
+                sh 'mvn clean'
+                sh 'mvn package'
+                
+            }
+        }
+        stage ('test code') {
+
+            steps {
+                sh 'echo "test code successfully"'
+            }
+        }
+        stage ('deploy code') {
+
+            steps {
+                sh 'echo "deploy code successfully"'
+            }
+        }
+    }
+}
+     
