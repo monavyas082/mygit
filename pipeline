@@ -21,7 +21,7 @@ pipeline {
 
             steps {
                 withSonarQubeEnv('sonarqube') {
-                    sh 'mvn clean verify sonar:sonar -Dsonar.projectkey=onlinebookstore -Dsonar.host.url=http://3.92.193.191:9000/ -Dsonar.login=sqa_9edb54f6fd3007805e9b2a3664241d6b07a3cd2b'
+                    sh 'mvn clean verify sonar:sonar -Dsonar.projectkey=onlinebookstore -Dsonar.host.url=http://172.31.90.55:9000/ -Dsonar.login=sqa_9edb54f6fd3007805e9b2a3664241d6b07a3cd2b'
                 }
                 sh 'echo "test code successfully"'
               
